@@ -2,6 +2,7 @@
 
 ## TO-DO
 
+- [x] Deploy on Vercel
 - [ ] Scaffold project with mock data
 - [ ] Init database
 - [ ] Attach database to UI
