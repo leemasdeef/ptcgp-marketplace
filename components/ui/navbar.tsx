@@ -11,6 +11,7 @@ import {
 } from "./navigation-menu";
 import { Input } from "./input";
 import { ShoppingCart } from "lucide-react";
+import Search from "./search";
 
 export default function Navbar() {
   const isMobile = useIsMobile();
@@ -25,7 +26,7 @@ export default function Navbar() {
           <NavigationMenuLink>PokeHunt</NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Input className="grow" placeholder="Search..."></Input>
+          <Search />
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink>
