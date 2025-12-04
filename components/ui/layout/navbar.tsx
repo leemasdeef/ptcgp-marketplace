@@ -8,10 +8,10 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "./navigation-menu";
-import { Input } from "./input";
+} from "../navigation-menu";
+import { Input } from "../input";
 import { ShoppingCart } from "lucide-react";
-import Search from "./search";
+import Search from "../search";
 
 export default function Navbar() {
   const isMobile = useIsMobile();
