@@ -3,8 +3,8 @@
 ## TO-DO
 
 - [x] Deploy on Vercel
-- [ ] Scaffold project with mock data
-- [ ] Setup poke API
+- [x] Scaffold project with mock data
+- [x] Setup poke API
 - [ ] Init database (upstash for fetching cards)
 - [ ] Init database (drizzle for user data)
 - [ ] Attach upstash to UI
