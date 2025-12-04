@@ -9,9 +9,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../navigation-menu";
-import { Input } from "../input";
 import { ShoppingCart } from "lucide-react";
 import Search from "../search";
+import Link from "next/link";
 
 export default function Navbar() {
   const isMobile = useIsMobile();
@@ -23,14 +23,18 @@ export default function Navbar() {
     >
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuLink>PokeHunt</NavigationMenuLink>
+          <NavigationMenuLink asChild>
+            <Link href="/">PokeHunt</Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Search />
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink>
-            <ShoppingCart />
+          <NavigationMenuLink asChild>
+            <Link href="/cart">
+              <ShoppingCart />
+            </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
