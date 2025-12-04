@@ -1,19 +1,28 @@
 "use client";
-import { useState } from "react";
+
+import { useRouter } from "next/navigation";
 import { Button } from "./button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-export default function PageButtons() {
-  const [page, setPage] = useState(1);
+import { useSearchParams } from "next/navigation";
+export default function PageButtons({ page }: { page: number }) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const goToPage = (p: number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("page", String(p));
+
+    router.push(`?${params.toString()}`);
+  };
 
   return (
     <div className="flex">
-      {page > 1 && (
-        <Button onClick={() => setPage(page - 1)}>
-          <ChevronLeft />
-        </Button>
-      )}
+      <Button onClick={() => goToPage(page - 1)} disabled={page <= 1}>
+        <ChevronLeft />
+      </Button>
+
       <Button>{page}</Button>
-      <Button onClick={() => setPage(page + 1)}>
+      <Button onClick={() => goToPage(page + 1)}>
         <ChevronRight />
       </Button>
     </div>

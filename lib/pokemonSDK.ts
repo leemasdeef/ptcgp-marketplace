@@ -14,6 +14,8 @@ export const cardList = async (
     Query.create().equal("set.id", set).paginate(page, itemsPerPage)
   );
 
+
+
 export const searchCard = async (name: string) =>
   await tcgdex.card.list(
     Query.create().equal("series", "pgtcp").contains("name", `${name}`)

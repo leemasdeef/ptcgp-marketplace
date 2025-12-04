@@ -1,20 +1,14 @@
 import CardGrid from "@/components/ui/cardList";
+import CardListWrapper from "@/components/ui/cardListWrapper";
 import PageButtons from "@/components/ui/pageButton";
-export default function Home() {
+import { searchParamProps } from "@/lib/types/types";
+
+type HomeProps = searchParamProps;
+
+export default function Home({ searchParams }: HomeProps) {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-wrap">
-        <CardGrid />
-      </div>
-      <div className="flex justify-center">
-        <PageButtons />
-      </div>
+      <CardListWrapper searchParams={searchParams} />
     </div>
   );
-}
-
-interface Card {
-  id: string;
-  name: string;
-  image: string;
 }
