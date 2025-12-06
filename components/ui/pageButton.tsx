@@ -16,13 +16,17 @@ export default function PageButtons({ page }: { page: number }) {
   };
 
   return (
-    <div className="flex">
-      <Button onClick={() => goToPage(page - 1)} disabled={page <= 1}>
+    <div className="flex" data-testid="page button container">
+      <Button
+        onClick={() => goToPage(page - 1)}
+        disabled={page <= 1}
+        data-testid="page left"
+      >
         <ChevronLeft />
       </Button>
 
       <Button>{page}</Button>
-      <Button onClick={() => goToPage(page + 1)}>
+      <Button onClick={() => goToPage(page + 1)} data-testid="page right">
         <ChevronRight />
       </Button>
     </div>
