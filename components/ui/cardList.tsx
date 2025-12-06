@@ -21,7 +21,7 @@ export default async function CardGrid({ page }: { page: number }) {
   return (
     <>
       {images.map((pokemon) => (
-        <Card key={pokemon.id}>
+        <Card key={pokemon.id} data-testid="card">
           <CardContent>
             <Image
               src={pokemon.image ?? ""}
