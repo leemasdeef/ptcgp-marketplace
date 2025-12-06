@@ -32,7 +32,7 @@ export default function Navbar() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild>
-            <Link href="/cart">
+            <Link href="/cart" aria-label="Cart">
               <ShoppingCart />
             </Link>
           </NavigationMenuLink>
