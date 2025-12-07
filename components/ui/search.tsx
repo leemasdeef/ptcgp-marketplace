@@ -2,7 +2,8 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Input } from "./input";
 import { searchCard } from "@/lib/pokemonSDK";
-export default function Search() {
+
+function Search() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -27,5 +28,15 @@ export default function Search() {
         defaultValue={searchParams.get("query")?.toString()}
       />
     </>
+  );
+}
+
+import { Suspense } from "react";
+
+export default function SearchBar() {
+  return (
+    <Suspense>
+      <Search />
+    </Suspense>
   );
 }
