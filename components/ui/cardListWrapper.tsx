@@ -8,13 +8,14 @@ type CardListWrapperProps = searchParamProps;
 export default async function CardListWrapper({
   searchParams,
 }: CardListWrapperProps) {
-  const params = await searchParams;
-  const page = Number(params?.page ?? 1);
+  const response = await searchParams;
+  const page = Number(response?.page ?? 1);
+  const query = response?.query || "";
 
   return (
     <>
       <div className="flex flex-wrap">
-        <CardGrid page={page} />
+        <CardGrid page={page} query={query} />
       </div>
       <div className="flex justify-center">
         <PageButtons page={page} />

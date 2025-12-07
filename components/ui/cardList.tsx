@@ -8,9 +8,21 @@ interface Card {
   image: string;
 }
 
-export default async function CardGrid({ page }: { page: number }) {
-  const cards = await cardList("A1", page, 20); // 20 cards per page
+export default async function CardGrid({
+  page,
+  query,
+}: {
+  page: number;
+  query: string | string[];
+}) {
+  let cards; // declare cards array
+  if (query) {
+    cards = await searchCard(query.toString());
+  } else {
+    cards = await cardList("A1", page, 20); // 20 cards per page
+  }
 
+  console.log("THE CARDS ARE: ", cards);
   //Image object will have id, name, and image link
   const images = cards.map((card) => ({
     id: card.localId,
