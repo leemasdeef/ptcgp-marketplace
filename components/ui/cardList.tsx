@@ -17,7 +17,7 @@ export default async function CardGrid({
 }) {
   let cards; // declare cards array
   if (query) {
-    cards = await searchCard(query.toString());
+    cards = await searchCard(query.toString(), page, 20);
   } else {
     cards = await cardList("A1", page, 20); // 20 cards per page
   }
@@ -25,7 +25,7 @@ export default async function CardGrid({
   console.log("THE CARDS ARE: ", cards);
   //Image object will have id, name, and image link
   const images = cards.map((card) => ({
-    id: card.localId,
+    id: card.id,
     name: card.name,
     image: card.getImageURL("high", "webp"),
   }));

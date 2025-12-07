@@ -8,7 +8,7 @@ function Search() {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const handleSearch = (term: string) => {
+  const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
     console.log(term);
     if (term) {
@@ -18,7 +18,7 @@ function Search() {
     }
 
     replace(`${pathname}?${params.toString()}`);
-  };
+  }, 300);
 
   return (
     <>
@@ -32,6 +32,7 @@ function Search() {
 }
 
 import { Suspense } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 export default function SearchBar() {
   return (
