@@ -17,10 +17,7 @@ export default function Navbar() {
   const isMobile = useIsMobile();
 
   return (
-    <NavigationMenu
-      className="h-20 w-full bg-blue-950 text-white"
-      viewport={isMobile}
-    >
+    <NavigationMenu className="h-20 w-full text-white" viewport={isMobile}>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink asChild>

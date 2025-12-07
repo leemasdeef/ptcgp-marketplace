@@ -1,6 +1,6 @@
 import TCGdex, { Query } from "@tcgdex/sdk";
 
-const tcgdex = new TCGdex("en");
+export const tcgdex = new TCGdex("en");
 
 export const series = await tcgdex.serie.get("tcgp");
 const allSets = series?.sets; // see series object here: https://api.tcgdex.net/v2/en/series/tcgp

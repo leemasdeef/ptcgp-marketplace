@@ -7,7 +7,7 @@ type HomeProps = searchParamProps;
 
 export default function Home({ searchParams }: HomeProps) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-lg">
       <CardListWrapper searchParams={searchParams} />
     </div>
   );
