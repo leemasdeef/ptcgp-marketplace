@@ -28,6 +28,7 @@ export const searchCard = async (
   await tcgdex.card.list(
     Query.create()
       .includes("set", allSetsString!)
-      .contains("name", `${name}`)
+      .contains("name", `${name}*`)
+      .sort("id", "ASC")
       .paginate(page, itemsPerPage)
   );
