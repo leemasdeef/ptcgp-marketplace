@@ -17,9 +17,9 @@ export default async function CardGrid({
 }) {
   let cards; // declare cards array
   if (query) {
-    cards = await searchCard(query.toString(), page, 20);
+    cards = await searchCard(query.toString(), page, 24);
   } else {
-    cards = await cardList("A1", page, 20); // 20 cards per page
+    cards = await cardList("A1", page, 24); // 20 cards per page
   }
 
   console.log("THE CARDS ARE: ", cards);
@@ -33,7 +33,12 @@ export default async function CardGrid({
   return (
     <>
       {images.map((pokemon) => (
-        <Card key={pokemon.id} data-testid="card" data-id={pokemon.id}>
+        <Card
+          className=""
+          key={pokemon.id}
+          data-testid="card"
+          data-id={pokemon.id}
+        >
           <CardContent>
             <Image
               src={pokemon.image ?? ""}

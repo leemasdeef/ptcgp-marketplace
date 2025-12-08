@@ -1,4 +1,3 @@
-import React from "react";
 import CardGrid from "./cardList";
 import PageButtons from "./pageButton";
 import { searchParamProps } from "@/lib/types/types";
@@ -14,7 +13,7 @@ export default async function CardListWrapper({
 
   return (
     <>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         <CardGrid page={page} query={query} />
       </div>
       <div className="flex justify-center">
