@@ -44,7 +44,7 @@ export default async function CardGrid({
           <CardContent>
             <Link href="/card">
               <Image
-                src={pokemon.image ?? ""}
+                src={pokemon.image!}
                 alt={pokemon.name}
                 height={150}
                 width={150}
