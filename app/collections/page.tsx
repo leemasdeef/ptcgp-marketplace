@@ -3,7 +3,7 @@ import { series } from "@/lib/pokemonSDK";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Page() {
+export default function Page() {
   const allSets = series?.sets;
   const sets = allSets?.map((set) => ({
     id: set.id,
