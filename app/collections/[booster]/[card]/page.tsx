@@ -9,21 +9,25 @@ export default async function CardDetails() {
   const image = card?.getImageURL("high", "webp");
   return (
     <section className="flex justify-center items-center">
-      <Card className="min-w-9/12 p-20">
-        <div className="flex flex-col items-center">
-          <h1>{card?.name}</h1>
-          <h2>
-            {card?.set.name} & {card?.set.id}
-          </h2>
+      <Card className="min-w-10/12 max-w-11/12 p-4">
+        <div className="flex flex-col gap-5 items-center">
           <div>
             <Image alt={"Card"} src={image ?? ""} height={300} width={300} />
+          </div>
+          <div>
+            <h1 className="text-7xl">{card?.name}</h1>
+            <h2 className="text-center font-bold">
+              {card?.set.name} & {card?.set.id}
+            </h2>
           </div>
           <div>
             <Price price="20.00"></Price>
           </div>
           <div>{card?.description}</div>
           <div>
-            <Button>Add to cart</Button>
+            <Button className="border hover:border-violet-400">
+              Add to cart
+            </Button>
           </div>
         </div>
       </Card>

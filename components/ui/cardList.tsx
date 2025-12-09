@@ -1,6 +1,7 @@
 import { cardList, searchCard } from "@/lib/pokemonSDK";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Card {
   id: string;
@@ -22,13 +23,14 @@ export default async function CardGrid({
     cards = await cardList("A1", page, 24); // 20 cards per page
   }
 
-  console.log("THE CARDS ARE: ", cards);
   //Image object will have id, name, and image link
   const images = cards.map((card) => ({
     id: card.id,
     name: card.name,
     image: card.getImageURL("high", "webp"),
   }));
+
+  // Card click handler
 
   return (
     <>
@@ -40,12 +42,14 @@ export default async function CardGrid({
           data-id={pokemon.id}
         >
           <CardContent>
-            <Image
-              src={pokemon.image ?? ""}
-              alt={pokemon.name}
-              height={150}
-              width={150}
-            />
+            <Link href="/card">
+              <Image
+                src={pokemon.image ?? ""}
+                alt={pokemon.name}
+                height={150}
+                width={150}
+              />
+            </Link>
           </CardContent>
         </Card>
       ))}
