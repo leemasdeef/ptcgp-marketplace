@@ -1,3 +1,4 @@
+import { allSetsString } from "@/lib/pokemonSDK";
 import CardGrid from "./cardList";
 import PageButtons from "./pageButton";
 import { searchParamProps } from "@/lib/types/types";
@@ -14,7 +15,7 @@ export default async function CardListWrapper({
   return (
     <>
       <div className="flex flex-wrap justify-center">
-        <CardGrid page={page} query={query} />
+        <CardGrid page={page} query={query} set={allSetsString!} />
       </div>
       <div className="flex justify-center">
         <PageButtons page={page} />

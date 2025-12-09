@@ -12,15 +12,17 @@ interface Card {
 export default async function CardGrid({
   page,
   query,
+  set,
 }: {
   page: number;
   query: string | string[];
+  set: string;
 }) {
   let cards; // declare cards array
   if (query) {
     cards = await searchCard(query.toString(), page, 24);
   } else {
-    cards = await cardList("A1", page, 24); // 20 cards per page
+    cards = await cardList(set, page, 24); // 24 cards per page
   }
 
   //Image object will have id, name, and image link
@@ -42,7 +44,7 @@ export default async function CardGrid({
           data-id={pokemon.id}
         >
           <CardContent>
-            <Link href="/card">
+            <Link href={`/${pokemon.id}`}>
               <Image
                 src={pokemon.image!}
                 alt={pokemon.name}

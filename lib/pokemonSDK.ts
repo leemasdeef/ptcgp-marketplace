@@ -8,7 +8,7 @@ const allSets = series?.sets; // see series object here: https://api.tcgdex.net/
 // Example: setIds = ["P-A", "A1", "A1A" ]
 const setIds = allSets?.map((set) => set.id);
 //Example: allSetsString = "P-A|A1|A1A", to be used in TCGDex sdk
-const allSetsString = setIds?.join("|");
+export const allSetsString = setIds?.join("|");
 
 // paramaters are for pagination
 export const cardList = async (
@@ -17,7 +17,10 @@ export const cardList = async (
   itemsPerPage: number
 ) =>
   await tcgdex.card.list(
-    Query.create().equal("set.id", set).paginate(page, itemsPerPage)
+    Query.create()
+      .equal("set.id", set)
+      .sort("id", "ASC")
+      .paginate(page, itemsPerPage)
   );
 
 export const searchCard = async (

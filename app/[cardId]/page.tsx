@@ -4,8 +4,16 @@ import Price from "@/components/ui/price";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-export default async function CardDetails() {
-  const card = await tcgdex.card.get("A1-020");
+export default async function CardDetails({
+  params,
+}: {
+  params: {
+    cardId: string;
+  };
+}) {
+  const { cardId } = await params;
+  console.log(cardId);
+  const card = await tcgdex.card.get(cardId);
   const image = card?.getImageURL("high", "webp");
   return (
     <section className="flex justify-center items-center">
