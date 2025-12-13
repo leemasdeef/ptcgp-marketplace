@@ -10,6 +10,9 @@ const setIds = allSets?.map((set) => set.id);
 //Example: allSetsString = "P-A|A1|A1A", to be used in TCGDex sdk
 export const allSetsString = setIds?.join("|");
 
+// query for getting single card
+export const getCard = async (cardId: string) => await tcgdex.card.get(cardId);
+
 // paramaters are for pagination
 export const cardList = async (
   set: string,
@@ -23,6 +26,7 @@ export const cardList = async (
       .paginate(page, itemsPerPage)
   );
 
+// Query for search bar
 export const searchCard = async (
   name: string,
   page: number,

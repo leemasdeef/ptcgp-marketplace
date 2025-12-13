@@ -20,7 +20,12 @@ export default async function CardDetails({
       <Card className="min-w-10/12 max-w-11/12 p-4">
         <div className="flex flex-col gap-5 items-center">
           <div>
-            <Image alt={"Card"} src={image!} height={300} width={300} />
+            <Image
+              alt={`${card?.name}`}
+              src={image!}
+              height={300}
+              width={300}
+            />
           </div>
           <div>
             <h1 className="text-7xl">{card?.name}</h1>
